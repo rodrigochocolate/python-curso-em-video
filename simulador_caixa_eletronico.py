@@ -2,21 +2,25 @@ print('=' * 30)
 print(f'{"CAIXA ELETRÔNICO":^30}')
 print('=' * 30)
 valor = int(input('Que valor você quer sacar? '))
-ced50 = valor // 50
-if ced50 > 0:
-    print(f'Total de {ced50} cédulas de R$50')
-    valor -= ced50 * 50
-ced20 = valor // 20
-if ced20 > 0:
-    print(f'Total de {ced20} cédulas de R$20')
-    valor -= ced20 * 20
-ced10 = valor // 10
-if ced10 > 0:
-    print(f'Total de {ced10} cédulas de R$10')
-    valor -= ced10 * 10
-ced01 = valor // 1
-if ced01 > 0:
-    print(f'Total de {ced01} cédulas de R$1')
-    valor -= ced01
-print('=' * 30)
-print('Volte sempre! Tenha um bom dia!')
+cedulas = 0
+cedula = 100
+while True:
+    if valor >= cedula:
+        valor -= cedula
+        cedulas += 1
+    else:
+        if cedulas > 0:
+            print(f'Total de {cedulas} de R${cedula}')
+        if cedula == 100:
+            cedula = 50
+        elif cedula == 50:
+            cedula = 20
+        elif cedula == 20:
+            cedula = 10
+        elif cedula == 10:
+            cedula = 2
+        elif cedula == 2:
+            cedula = 1
+        cedulas = 0
+        if valor == 0:
+            break
