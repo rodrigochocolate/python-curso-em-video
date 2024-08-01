@@ -5,5 +5,6 @@ if aluno['media'] < 5:
     aluno['situação'] = 'Recuperação'
 else:
     aluno['situação'] = 'Aprovado'
-    
-print(f'O aluno {aluno["nome"]} está {aluno["situação"]}!')
+
+for k, v in aluno.items():
+    print(f'--- {k} é igual a {v}')
