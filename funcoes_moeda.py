@@ -13,3 +13,22 @@ def formatarDinheiro(dinheiro: float, moeda: str='R$'):
         moedaFormatada += '0'
     return moedaFormatada
     
+def cab(tam, txt):
+    lin(tam)
+    print(txt.center(tam))
+    lin(tam)
+    
+def lin(tam):
+    print('-' * tam)
+    
+def reduzir(preco: float, porcentagem: float, formatar=False):
+    return formatarDinheiro(preco - preco * porcentagem/100) if formatar else preco - preco * porcentagem/100
+    
+def resumo(preco: float, aumento: float, reducao: float):
+    cab(40, 'RESUMO DO VALOR')
+    print(f'Preço analisado: {formatarDinheiro(preco)}')
+    print(f'Dobro do preço: {dobro(preco, True)}')
+    print(f'Metade do preço: {metade(preco, True)}')
+    print(f'{aumento}% de aumento: {aumentar(preco, aumento, True)}')
+    print(f'{reducao}% de redução: {reduzir(preco, reducao, True)}')
+    lin(40)
